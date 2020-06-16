@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <link rel="stylesheet" href="https://tilomitra.github.io/infinite/infinite.css">
+    <link rel="stylesheet" href="../static/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/app.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container h-100 d-flex justify-content-center align-items-center">
+
+        <div class="card animate__animated animate__fadeIn" style="width: 30rem;">
+            <div class="card-title text-center bg-dark">
+                <h5 class="">PREDICT POST</h5>
+            </div>
+            <div class="card-body">
+                <textarea class="card-text" rows="10" placeholder="اكتب بوست ..."></textarea>
+
+                <div class="row mt-5 justify-content-center">
+                    <button id="btn-submit" class="btn btn-dark mx-auto">POST</button>
+                </div>
+            </div>
+            <div class="footer text-center">
+                MADE WITH LOVE 💕 BY Edro
+            </div>
+        </div>
+    </div>
+
+    <!-- TODO: -->
+    <!-- feat: change card border color or body background color to interact with post category -->
+
+
+    <script src="../static/node_modules/jquery/jquery.min.js"></script>
+    <script src="../static/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="../static/js/app.js"></script> -->
+    <script>
+        const btnPost = document.querySelector("#btn-submit");
+        const post = document.querySelector("textarea");
+
+
+        btnPost.addEventListener('click', predictPostCategory);
+
+        function predictPostCategory() {
+            postData('/test', {
+                post: post.value
+            });
+        }
+
+        const postData = async (url = '', data = {}) => {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            try {
+                const newData = await response.json();
+                console.log(newData);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    </script>
+</body>
+
+</html>
