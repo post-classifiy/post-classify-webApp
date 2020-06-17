@@ -1,9 +1,9 @@
 body {
   background-color: #32e0c4;
-  /* background: url('../imgs/video.mp4'); */
+  /* background: url('../imgs/x.gif');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   height: 100vh;
 }
 
@@ -40,11 +40,13 @@ body {
 #btn-submit {
   /* background: #4add02; */
   /* color: #4add02; */
+  background-color: rgba(14, 12, 12, 0.7);
   font-weight: 800;
   letter-spacing: 6px;
   width: 60%;
   height: 50px;
 }
+
 
 .footer {
   background-color: #eeeeee;

@@ -4,10 +4,11 @@ import numpy as np
 import pickle
 import pandas as pd
 # loading model
-loaded_model = pickle.load(open('naive_bayes_96.sav', 'rb'))
+# loaded_model = pickle.load(open('old_model/naive_bayes_96.sav', 'rb'))
+loaded_model = pickle.load(open('naive_bayes_97.sav', 'rb'))
 
 # count vector to transform it to array of frequency
-count_vect = pickle.load(open('count_vect', 'rb'))
+count_vect = pickle.load(open('count_vect97', 'rb'))
 
 app = Flask(__name__)
 # model = pickle.load(open('model.pkl', 'rb'))
@@ -18,8 +19,8 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/test', methods=['POST'])
-def test():
+@app.route('/predict', methods=['POST'])
+def predictPostCategory():
     data = request.get_json()
     print(data)
 
@@ -37,8 +38,8 @@ def test():
         {0: 'Politic', 1: 'ads', 2: 'eco', 3: 'food', 4: 'health', 5: 'porno', 6: 'religion', 7: 'sports', 8: 'tech', 9: 'tv'})
 
     # (dataset)
-    print(type(dataset['predection']))
-    return jsonify({"prediction": dataset['predection'][0]})
+    # print(type(dataset['predection']))
+    return jsonify({"category": dataset['predection'][0]})
 
 
 if __name__ == "__main__":
