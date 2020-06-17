@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "d:\\CSE 2020\\Automota\\project\\env\\Scripts\\python.exe"
+    "python.pythonPath": "d:\\CSE 2020\\Automota\\project\\env\\Scripts\\python.exe",
+    "liveServer.settings.port": 5501
 }

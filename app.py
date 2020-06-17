@@ -3,15 +3,15 @@ from flask import Flask, request, jsonify, render_template
 import numpy as np
 import pickle
 import pandas as pd
+
+
 # loading model
-# loaded_model = pickle.load(open('old_model/naive_bayes_96.sav', 'rb'))
 loaded_model = pickle.load(open('naive_bayes_97.sav', 'rb'))
 
 # count vector to transform it to array of frequency
 count_vect = pickle.load(open('count_vect97', 'rb'))
 
 app = Flask(__name__)
-# model = pickle.load(open('model.pkl', 'rb'))
 
 
 @app.route('/')
@@ -37,8 +37,6 @@ def predictPostCategory():
     dataset['predection'] = dataset.predection.map(
         {0: 'Politic', 1: 'ads', 2: 'eco', 3: 'food', 4: 'health', 5: 'porno', 6: 'religion', 7: 'sports', 8: 'tech', 9: 'tv'})
 
-    # (dataset)
-    # print(type(dataset['predection']))
     return jsonify({"category": dataset['predection'][0]})
 
 

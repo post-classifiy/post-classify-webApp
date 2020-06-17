@@ -1,9 +1,4 @@
 body {
-    /* background-color: #32e0c4; */
-    /* background: url('../imgs/x.gif');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
     height: 100vh;
 }
 
@@ -28,7 +23,6 @@ body {
 .card {
     background-color: rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(0, 0, 0, 0.1);
-    /* color: white; */
 }
 
 .card-body {}
@@ -58,7 +52,6 @@ body {
     color: white;
     font-size: 20px;
     font-weight: 800;
-    /* letter-spacing: 2px; */
 }
 
 .category {
@@ -70,9 +63,6 @@ body {
 }
 
 #btn-submit {
-    /* background: #4add02; */
-    /* color: #4add02; */
-    /* color: white; */
     font-weight: 800;
     letter-spacing: 6px;
     width: 60%;
@@ -89,7 +79,6 @@ body {
 
 .footer {
     background-color: #eeeeee;
-    /* height: 20px; */
     padding: 20px;
     font-weight: 700;
     letter-spacing: 3px;

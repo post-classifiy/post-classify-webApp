@@ -15,15 +15,24 @@
 
 <body>
 
+    <!-- start background image -->
     <div class="bg-image"></div>
+    <!-- end background image -->
 
+    <!-- start container -->
     <div class="container h-100 d-flex justify-content-center align-items-center">
 
+        <!-- start card -->
         <div class="card animate__animated animate__fadeIn" style="width: 30rem;">
+            <!-- start card title -->
             <div class="card-title text-center">
                 <h5 class="">PREDICT POST</h5>
             </div>
+            <!-- end card title -->
+
+            <!-- start card body -->
             <div class="card-body">
+
                 <textarea class="card-text" rows="10" placeholder="اكتب بوست ..."></textarea>
 
                 <div id="result" class="d-none category animate__animated animate__fadeInUp"></div>
@@ -32,72 +41,25 @@
                     <button id="btn-submit" class="btn btn-dark mx-auto">PREDICT</button>
                 </div>
             </div>
+            <!-- end card body -->
+
+            <!-- start card footer -->
             <div class="footer text-center" dir="ltr">
                 MADE BY 💕
             </div>
+            <!-- end card footer -->
         </div>
-    </div>
+        <!-- end card -->
 
-    <!-- TODO: -->
-    <!-- feat: change card border color or body background color to interact with post category -->
+    </div>
+    <!-- end container -->
+
 
 
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/popper.min.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
-    <!-- <script src="../static/js/app.js"></script> -->
-
-
-    <script>
-        const backgroundImg = document.querySelector(".bg-image");;
-        const btnPost = document.querySelector("#btn-submit");
-        const post = document.querySelector("textarea");
-        const cardBody = document.querySelector(".card-body");
-        const divPostCategory = document.querySelector("#result");;
-        // const btnRow = document.querySelector(".row");
-
-
-        btnPost.addEventListener('click', predictPostCategory);
-
-        async function predictPostCategory() {
-            const data = await postData('/predict', {
-                post: post.value
-            });
-
-            console.log(data.category);
-
-            // change background img
-            backgroundImg.style.backgroundImage = "url('../static/imgs/x.gif')";
-
-
-            setTimeout(function () {
-                // add post category
-                divPostCategory.classList.remove('d-none');
-                divPostCategory.textContent = data.category
-                backgroundImg.style.backgroundImage = "url('../static/imgs/x.jpg')";
-            }, 4000);
-
-        }
-
-
-        const postData = async (url = '', data = {}) => {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-            try {
-                const newData = await response.json();
-                console.log(newData);
-                return newData
-            } catch (error) {
-                console.log(error);
-            }
-        }
-    </script>
+    <script src="../static/js/app-v1.js"></script>
 </body>
 
 </html>
