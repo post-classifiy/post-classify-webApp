@@ -2,11 +2,12 @@ body {
     height: 100vh;
 }
 
+/* background image */
 .bg-image {
     position: fixed;
     left: 0;
     right: 0;
-    z-index: 0;
+    z-index: -1;
     display: block;
     /* The image used */
     background-image: url('../imgs/x.jpg');
@@ -20,12 +21,12 @@ body {
     background-size: cover;
 }
 
+/* card */
 .card {
     background-color: rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(0, 0, 0, 0.1);
 }
 
-.card-body {}
 
 .card-title {
     background-color: rgba(14, 12, 12, 0.7);
@@ -78,9 +79,28 @@ body {
 }
 
 .footer {
-    background-color: #eeeeee;
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 20px;
     font-weight: 700;
     letter-spacing: 3px;
-    color: #3b39b0;
+    color: white;
+}
+
+/* chart */
+.chart {
+    width: 600px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+canvas {
+    margin: 0 auto;
+}
+
+/* media */
+@media (max-width: 500px) {
+    .chart {
+        width: 350px;
+    }
 }

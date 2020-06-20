@@ -33,11 +33,23 @@ def predictPostCategory():
     z = count_vect.transform(fu.ravel())
     result = loaded_model.predict(z)
 
+    probabilites = loaded_model.predict_proba(z) * 100
+    probabilites = probabilites.round(2)
+    confidence = np.amax(probabilites)
+    x_axis = ['Politic', 'ads', 'eco', 'food', 'health',
+              'porno', 'religion', 'sports', 'tech', 'tv']
+
     dataset = pd.DataFrame({'post': fu, 'predection': result})
     dataset['predection'] = dataset.predection.map(
         {0: 'Politic', 1: 'ads', 2: 'eco', 3: 'food', 4: 'health', 5: 'porno', 6: 'religion', 7: 'sports', 8: 'tech', 9: 'tv'})
+    outp = dataset['predection'][0]
+    if confidence < 70:
+        outp = "I'm not confidint 🤔🤔"
 
-    return jsonify({"category": dataset['predection'][0]})
+    print({"category": outp, "confidence": confidence,
+           "x_axis": x_axis, "y_axis": probabilites})
+
+    return jsonify({"category": outp, "confidence": confidence, "x_axis": x_axis, "y_axis": probabilites.tolist()})
 
 
 if __name__ == "__main__":
